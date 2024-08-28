@@ -1,4 +1,8 @@
-<p style="color: red;">Do not use Save As</p>
-We should use the following method to download the bin file.
 
-![how to download bin file](how_to_download.gif)
+<p style="color: green;">Please use "download raw file"</p>
+
+<img src=how_to_download.gif width="600"/>
+
+<p style="color: red;">Please do not use "save link as"</p>
+
+<img src=dont_save_as.png width="200"/>
