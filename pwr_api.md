@@ -76,14 +76,13 @@ usb=1&power=1
 ~~~
 
 ## communicate with PWR by a command
-
-### GET http://192.168.3.71/get_power
- 
 #### Frame Format
 | Frame Head | Command | Data Length | Data         | Checksum | Frame Tail |
 |------------|---------|-------------|--------------|----------|------------|
 | AA         | XX      | N           | Byte0-Byten  | crc16    | 5AA5       |
 
+### GET http://192.168.3.71/get_power
+ 
 #### Example
 
 | Byte Range      | Description              | Example Value                         | Notes                                   |
