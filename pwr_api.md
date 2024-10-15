@@ -75,4 +75,32 @@ usb=1&power=1
 }
 ~~~
 
-## send a command to PWR
+## communicate with PWR by a command
+
+### GET http://192.168.4.1/get_power
+ 
+#### Frame Format
+| Frame Head | Command | Data Length | Data         | Checksum | Frame Tail |
+|------------|---------|-------------|--------------|----------|------------|
+| AA         | XX      | N           | Byte0-Byten  | crc16    | 5AA5       |
+
+#### Example
+
+| Byte Range      | Description              | Example Value                         | Notes                                   |
+|-----------------|--------------------------|--------------------------------------|-----------------------------------------|
+| `0x00`          | Start Identifier         | `aa`                                 | Fixed start identifier                  |
+| `0x01`          | Command Type             | `01`                                 | Get status                              |
+| `0x02`          | Data Length              | `3c`                                 |                                         |
+| `0x03`          | Error Code               | `00`                                 |                                         |
+| `0x04 - 0x0F`   | IP Address               | `31 39 32 2e 31 36 38 2e 33 2e 37 31` | ASCII values of the string `192.168.3.71` |
+| `0x10 - 0x13`   | Reserved                 | `00 00 00 00`                        | Reserved field                          |
+| `0x14 - 0x1F`   | Voltage                  | `fb e9 64 43`                        | 32-bit float (voltage value)          |
+| `0x20 - 0x23`   | Current                  | `00 00 00 00`                        | 32-bit float (current value)          |
+| `0x24 - 0x27`   | Power                    | `00 00 00 00`                        | 32-bit float (power value)            |
+| `0x28 - 0x2B`   | Energy                   | `00 00 00 00`                        | 32-bit float (energy value)           |
+| `0x2C - 0x2F`   | Frequency                | `46 55 44 42`                        | 32-bit float (frequency value)        |
+| `0x30 - 0x33`   | Switch State             | `01 00 00 00`                        | `power`, `auto_power_off`, `countdown`, `usb`, `usb_follow` |
+| `0x34 - 0x3B`   | auto power off                 | `00 00 00 00 00 00 00 00`            | auto power off field                          |
+| `0x3C - 0x3D`   | Status End Identifier    | `f3 ad`                              | CRC16                                   |
+| `0x3E - 0x3F`   | Status End Identifier    | `5a a5`                              | Fixed end identifier                    |
+
