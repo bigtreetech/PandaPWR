@@ -57,3 +57,22 @@ If we need to turn on both power and usb1,we can use multi parameters like this:
 usb=1&power=1
 ```
 <img src=img/multi_parameters.png width="600"/>
+
+## update the power data
+### GET http://192.168.4.1/update_ele_data
+### PWR response a json:
+~~~
+{
+  "countdown_state": 0,
+  "auto_poweroff": "0",
+  "countdown": "0",
+  "voltage": 229,
+  "current": 0,
+  "power": 0,
+  "power_state": 1,
+  "usb_state": 0,
+  "ele": 0
+}
+~~~
+
+## send a command to PWR
