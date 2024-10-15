@@ -77,7 +77,7 @@ usb=1&power=1
 
 ## communicate with PWR by a command
 
-### GET http://192.168.4.1/get_power
+### GET http://192.168.3.71/get_power
  
 #### Frame Format
 | Frame Head | Command | Data Length | Data         | Checksum | Frame Tail |
@@ -100,7 +100,7 @@ usb=1&power=1
 | `0x28 - 0x2B`   | Energy                   | `00 00 00 00`                        | 32-bit float (energy value)           |
 | `0x2C - 0x2F`   | Frequency                | `46 55 44 42`                        | 32-bit float (frequency value)        |
 | `0x30 - 0x33`   | Switch State             | `01 00 00 00`                        | `power`, `auto_power_off`, `countdown`, `usb`, `usb_follow` |
-| `0x34 - 0x3B`   | auto power off                 | `00 00 00 00 00 00 00 00`            | auto power off field                          |
+| `0x34 - 0x3B`   | auto power off                 | `00 00 00 00 00 00 00 00`            | auto power off config                           |
 | `0x3C - 0x3D`   | Status End Identifier    | `f3 ad`                              | CRC16                                   |
 | `0x3E - 0x3F`   | Status End Identifier    | `5a a5`                              | Fixed end identifier                    |
 
