@@ -21,6 +21,7 @@
 ## Mqtt broker
 | parameter | detail|
 | :-----| :----: | 
+| Topic | pandapwr/state |
 | Client Id | A unique one |
 | Host|mqtt://192.168.3.190(replace it with a actual one)|      
 | port|1883|   
